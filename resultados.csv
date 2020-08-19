@@ -1,10 +1,5 @@
-Dimensões,Nr Pergunta,Amostra,Sim,Não,Não Observado,Sim %,Não %,Não  Observado %,Prev Amostra,Prev Sim,Prev Não,Prev Não Observado,Prev Sim %,Prev Não %,Prev Não Observado %
-
-Social,1.4,20,6,9,5,30.0,45.0,25.0,20,13,1,6,65.0,5.0,30.0
-
-Economica,2.1,20,10,6,4,50.0,30.0,20.0,20,15,1,4,75.0,5.0,20.0
-
-Política,3.4,20,7,9,4,35.0,45.0,20.0,20,3,5,12,15.0,25.0,60.0
-
-Cultural,4.4,20,7,11,2,35.0,55.0,10.0,20,11,2,7,55.0,10.0,35.0
-
+Dimensões,Nr Pergunta,Amostra,Sim,Não,Não Observado,Sim %,Não %,Não  Observado %,Prev Amostra,Prev Sim,Prev Não,Prev Não Observado,Prev Sim %,Prev Não %,Prev Não Observado %
+Social,1.4,20,6,9,5,30.0,45.0,25.0
+Economica,2.1,20,10,6,4,50.0,30.0,20.0
+Política,3.4,20,7,9,4,35.0,45.0,20.0
+Cultural,4.4,20,7,11,2,35.0,55.0,10.0
