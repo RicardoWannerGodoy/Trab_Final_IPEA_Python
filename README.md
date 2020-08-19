@@ -1,4 +1,4 @@
-####[EM CONSTRUÇÃO]
+####[TESTE DA CONSTRUÇÃO DO README]
 
 
 ## Meu Primeiro Programa em *Python*
