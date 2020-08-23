@@ -73,19 +73,19 @@ Vamos conhecer melhor cada arquivo criado para esse programa, veremos o código 
 ````
 class Reader:
 ````
-
+Essa "Class Reader" tem as funções "create_list_question", create_dictionary e a "run":
 ````
     def __init__(self) -> None:
         super().__init__()
 ````
-
+Aqui foi criado essa função para transformar esse arquivo em Classes.
 ````
     def create_list_question(self, lista):
         lista = lista[0].split('\t')
         lista = [lista[4], lista[6], lista[14], lista[18]]
         return lista
 ````
-
+Aqui essa função seleciona as perguntas que foram escolhidas para serem carregadas no programa.
 ````
     def create_dictionary(self, list_question, list_answers):
         list_answers.pop(0)
@@ -102,7 +102,7 @@ class Reader:
 
         return list_dictionary
 ````
-
+Aqui o programa cria a junção da questão com as respostas. 
 ````
     def run(self):
         arquivo = open('arquivo.tsv', 'r', encoding='utf-8')
@@ -114,27 +114,28 @@ class Reader:
 
         return self.create_dictionary(self.create_list_question(texto), texto)
 ````
+Essa função lê o arquivo.tsv e povoa o programa com todas as informações.
 
-
+<br/>
 
 ##### main.py
 
 ```` 
 from Trab_Final_Python_RWG.reader import Reader
 ````
-
+Importando nesse momento a "class Reader" para utilizar aqui na função "main".
 ````
 from Trab_Final_Python_RWG.calculator import Calculator
 ````
-
+Importando nesse momento a "class Calculator" para utilizar aqui na função "main".
 ````
 from Trab_Final_Python_RWG.dimensao import Dimensao
 ````
-
+Importando nesse momento a "class Dimensao" para utilizar aqui na função "main".
 ````
 from Trab_Final_Python_RWG.exporter import Exporter
 ````
-
+Importando nesse momento a "class Exporter" para utilizar aqui na função "main".
 ````
 def main():
     reader = Reader()
@@ -145,35 +146,40 @@ def main():
     for item in dados.values():
         list_values.append(item)
 ````
-
+Aqui é a função que recebe as informações das "Class Reader","Class Calculator" e "Class Exporter".
 ````
     analitics_14 = calculator.create_analitics(list_values[0])
     analitics_21 = calculator.create_analitics(list_values[1])
     analitics_34 = calculator.create_analitics(list_values[2])
     analitics_44 = calculator.create_analitics(list_values[3])
 ````
-
+Nesse momento o programa faz os cálculos em valores brutos por cada resposta e coloca em uma lista.
 ````
     percentage_14 = calculator.create_percentage(analitics_14)
     percentage_21 = calculator.create_percentage(analitics_21)
     percentage_34 = calculator.create_percentage(analitics_34)
     percentage_44 = calculator.create_percentage(analitics_44)
 ````
-
+Nesse momento o programa faz os cálculos dos percentuais por cada resposta e coloca em uma lista.
 ````
     dimensoes = [Dimensao("1.4", analitics_14, percentage_14), Dimensao("2.1", analitics_21, percentage_21),
                  Dimensao("3.4", analitics_34, percentage_34), Dimensao("4.4", analitics_44, percentage_44)]
 ````
+Nesse momento o programa faz a junções dos cálculos dos valores brutos e dos percentuais por cada resposta 
+e os coloca em uma única lista.
 
 ````
     print('###########################################################################################')
     print('############################# "AVALIAÇÃO DE POLÍTICAS PÚBLICAS" ###########################')
     print('###########################################################################################\n')
 ````
-
+Aqui é apresentado um banner de início do programa com a frase "AVALIAÇÃO DE POLÍTICAS PÚBLICAS".
 ````
     resposta = 1
     amostra = 20
+````
+Aqui  foi fixado uma resposta para cada uma pergunta e uma amostra de 20 linhas de respostas.
+````
     while resposta != 0:
 ````
 
@@ -182,7 +188,7 @@ def main():
         print('******--------Menu Principal-------******')
         print('*****************************************')
 ````
-
+Aqui o programa apresenta o banner do início do "Menu Principal".
 ````
         print('Escolha a opção desejada abaixo:')
         print('****************************************')
@@ -193,36 +199,41 @@ def main():
         print('[0] Sair e gravar.')
         print('****************************************')
 ````
+O Menu Principal é composto de 5 opções que estão todas explicadas no Memorial desse programa no arquivo
+"README.md".
 
 ````
         resposta = int(input('Senhor(a) usuário(a), digite a sua opção:'))
         print('****************************************\n')
 ````
-
+Aqui o programa convida o usuário a digitar a opção desejada.
 ````
         if resposta == 1:
             amostra = int(input('Senhor(a) usuário(a), digite uma nova amostra da pesquisa:'))
 ````
-
+Aqui o usuário é convidado a digitar uma nova amostra, caso ele tenha escolhido a opção [1]. 
 ````
         elif resposta == 2:
-
+````
+Aqui o usuário é direcionado a um outro "Menu Dimensões", caso ele tenha escolhido a opção [2].
+````
             print('*****************************************')
             print('******--------Menu Dimensões-------******')
             print('*****************************************')
 ````
-
+Aqui o programa apresenta o banner do início do "Menu Dimensões".
 ````
             print('Dimensões ofertadas para pesquisa:')
             print('****************************************')
             print('[1] Social\n[2] Econômica\n[3] Política\n[4] Cultural')
             print('****************************************\n')
 ````
+O Menu Dimensões é composto de 4 opções que estão todas explicadas no Memorial desse programa no arquivo "README.md".
 
 ````
             dimensao = int(input('Senhor(a) usuário(a), digite a dimensão desejada:'))
 ````
-
+Aqui o programa convida o usuário a digitar a opção desejada.
 ````
             if 0 < dimensao < 5:
                 dimensoes[dimensao - 1].prevision_analitics = \
@@ -237,34 +248,34 @@ def main():
                 print('\nPercentuais da dimensão escolhida:')
                 print(dimensoes[dimensao - 1].to_string(dimensoes[dimensao - 1].prevision_percent))
 ````
-
+Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentuais por cada resposta. 
 ````
             else:
                 print('Senhor(a) usuário(a) você escolheu uma opção uma opção inválida!')
 ````
-
+Nesse passo caso o usuário digite uma opção errada ele é avisado a corrigi-la.
 ````
         elif resposta == 3:
 ````
-
+Aqui o usuário é direcionado a um outro "Exibir Valores Originais", caso ele tenha escolhido a opção [3].
 ````
             print('*****************************************')
             print('******--Exibir Valores Originais--*******')
             print('*****************************************')
 ````
-
+Aqui o programa apresenta o banner do início do "Exibir Valores Originais".
 ````
             print('Senhor(a) usuário(a), escolha uma das dimensões acima:')
             print('****************************************')
             print('[1] Social\n[2] Econômica\n[3] Política\n[4] Cultural\n[5] Todas as dimensões')
             print('****************************************')
 ````
-
+O menu "Exibir Valores Originais" é composto de 5 opções que estão todas explicadas no Memorial desse programa no arquivo "README.md".
 ````
             dimensao = int(input('Senhor(a) usuário(a), digite a dimensão desejada:'))
             print('****************************************')
 ````
-
+Aqui o programa convida o usuário a digitar a opção desejada.
 ````
             if 0 < dimensao < 5:
                 print('\nAmostra da dimensão escolhida:')
@@ -272,7 +283,7 @@ def main():
                 print('\nPercentuais da dimensão escolhida:')
                 print(dimensoes[dimensao - 1].to_string(dimensoes[dimensao - 1].percentage))
 ````
-
+Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentuais por cada resposta.
 ````
             elif dimensao == 5:
                 for index in range(len(dimensoes)):
@@ -281,21 +292,25 @@ def main():
                     print('Percentuais da pergunta', dimensoes[index].question)
                     print(dimensoes[index].to_string(dimensoes[index].percentage))
 ````
+Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentuais por cada resposta.
 
 ````
             else:
                 print('Senhor(a) usuário(a), você escolheu uma opção uma opção inválida!')
 ````
-
+Nesse passo caso o usuário digite uma opção errada ele é avisado a corrigi-la.
 ````
         elif resposta == 4:
+````
+Aqui o usuário para executar uma validação do programa com amostras e informação já carregada.
+````
             for index in range(len(dimensoes)):
                 dimensoes[index].prevision_analitics = \
                     calculator.create_prevision(amostra, dimensoes[index].percentage)
                 dimensoes[index].prevision_percent = \
                     calculator.create_percentage(dimensoes[index].prevision_analitics)
 ````
-
+Aqui o programa calcula os valores brutos e os percentuais por cada resposta.
 ````
                 print('Pergunta selecionada:', dimensoes[index].question)
                 print('\nAmostra da dimensão escolhida:')
@@ -304,9 +319,12 @@ def main():
                 print(dimensoes[index].to_string(dimensoes[index].prevision_percent))
                 print('*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n')
 ````
-
+Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentuais por cada resposta.
 ````
         elif resposta == 0:
+````
+Aqui o usuário consegui finalizar e gravar os valores no arquivo resultados.csv.
+````
             general_list = []
             list_dimensions = ['Social', 'Economica', 'Política', 'Cultural']
             for index in range(len(dimensoes)):
@@ -317,16 +335,17 @@ def main():
             exporter.to_csv(general_list)
             break
 ````
-
+Aqui o programa é finalizado e apresenta a mensagem padrão de fechamento.
 ````
         else:
             print('Senhor(a) usuário(a), escolha uma opção do menu válida!')
 ````
-
+Nesse passo caso o usuário digite uma opção errada ele é avisado a corrigi-la.
 ````
 if __name__ == "__main__":
     main()
 ````
+Aqui o programa inicia a chamada "main" e inicia o seu conteúdo.
 
 <br/>
 
@@ -334,16 +353,17 @@ if __name__ == "__main__":
 ````
 import numpy as np, numpy.random
 ````
-
+Importando nesse momento o numpy que foi instalado anteriormente pelo comando "pip install numpy" no terminal.
 ````
 class Calculator:
 ````
+Essa "Class Calculator" tem as funções "create_analitics", "create_percentage", "generate_random" e a "create_prevision".
 
 ````
     def __init__(self) -> None:
         super().__init__()
 ````
-
+Aqui foi criado essa função para transformar esse arquivo em Classe.
 ````
     def create_analitics(self, list_answers):
         analitics = {}
@@ -354,7 +374,7 @@ class Calculator:
                 analitics[item] = 1
         return analitics
 ````
-
+Aqui o programa executa o cálculo dos valores brutos das respostas.
 ````
     def create_percentage(self, analitics):
         percentage = {}
@@ -371,7 +391,7 @@ class Calculator:
             percentage[item] = round((analitics[item] * 100) / total_answers, 2)
         return percentage
 ````
-
+Aqui o programa executa o cálculo dos percentuais das respostas.
 ````
     def generate_random(self,margin, total_answers):
         total = margin
@@ -383,7 +403,7 @@ class Calculator:
         temp.append(total)
         return temp
 ````
-
+Aqui o programa gera randomicamente os valores brutos das respostas.
 ````
     def create_prevision(self, new_total_answers, percentage_answers):
         new_analitics = {}
@@ -397,6 +417,8 @@ class Calculator:
             count += 1
         return new_analitics
 ````
+Aqui o programa gera randomicamente os valores dos percentuais das respostas.
+
 <br/>
 
 
@@ -404,7 +426,7 @@ class Calculator:
 ````
 class Dimensao:
 ````
-
+Essa "Class Dimensao" tem as funções "to_string", to_string_int e a "export":
 ````
     def __init__(self, question="", analitics={}, percentage={}) -> None:
         self.question = question
@@ -413,7 +435,7 @@ class Dimensao:
         self.prevision_percent = {}
         self.prevision_analitics = {}
 ````
-
+Função criada para a entrada das variáveis e listas.
 ````
     def to_string(self, dicionario):
         texto = ""
@@ -421,7 +443,7 @@ class Dimensao:
             texto += str(item) + ' : ' + str("{:.2f}".format(dicionario[item])) + '\n'
         return texto
 ````
-
+Aqui o programa cria o dicionário.
 ````
     def to_string_int(self, dicionario):
         texto = ""
@@ -429,7 +451,7 @@ class Dimensao:
             texto += str(item) + ' : ' + str("{:.0f}".format(dicionario[item])) + '\n'
         return texto
 ````
-
+Aqui o programa cria o dicionário.
 ````
     def export(self, amostra):
         if self.prevision_percent == {}:
@@ -437,7 +459,7 @@ class Dimensao:
                     self.analitics['Não Observado'], self.percentage['Sim'], self.percentage['Não'],
                     self.percentage['Não Observado']]
 ````
-
+Aqui o programa seleciona as respostas prováveis: "Sim", "Não" e "Não Observado" da amostra inicial.
 ````
         else:
             return [self.question, 20, self.analitics['Sim'], self.analitics['Não'],
@@ -447,6 +469,8 @@ class Dimensao:
                     self.prevision_percent['Sim'], self.prevision_percent['Não'],
                     self.prevision_percent['Não Observado']]
 ````
+Aqui o programa seleciona as respostas prováveis: "Sim", "Não" e "Não Observado" da amostra inicial e da amostra selecionada pelo usuário.
+
 
 <br/>
 
@@ -455,16 +479,16 @@ class Dimensao:
 ````
 import csv
 ````
-
+Importando nesse momento o "csv".
 ````
 class Exporter:
 ````
-
+Essa "Class Calculator" tem as funções "to_csv".
 ````
     def __init__(self) -> None:
         super().__init__()
 ````
-
+Aqui foi criado essa função para transformar esse arquivo em Classe.
 ````
     def to_csv(self, dimension_list):
         with open('resultados.csv', 'w', encoding='utf-8') as csv_file:
@@ -475,6 +499,7 @@ class Exporter:
             writer.writerows(dimension_list)
             
 ````
+Aqui o programa cria um arquivo "resultados.csv" de saída com todas as informações como: as dimensões, perguntas, amostras valores brutos e percentuais.
 
 <br/>
 
