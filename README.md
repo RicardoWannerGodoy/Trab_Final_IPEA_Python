@@ -49,14 +49,38 @@ Para iniciar o programa deve-se rodar o arquivo "main.py" (são 5 arquivos no to
 
 O terminal aparece um banner com a frase "AVALIAÇÃO DE POLÍTICAS PÚBLICAS", em seguida o "Menu Principal" que é composto de 5 itens:  <br/>
 
+##### Menu Principal
+
 [1] Definir uma nova amostra. <br/>
 Aqui o usuário pode definir uma nova amostra para o programa realizar os cálculos. <br/>
 
 [2] Selecionar previsão dimensão. <br/>
-Aqui o usuário pede selecionar qual das dimensões que ele deseja fazer a distribuição da nova amostra. <br/>
+Aqui o usuário pode selecionar qual das dimensões que ele deseja fazer a distribuição da nova amostra. <br/>
+Assim que ele seleciona essa opção é aberto um novo menu:
+
+##### Menu Dimensões
+[1] Social<br/>
+[2] Econômica<br/>
+[3] Política<br/>
+[4] Cultural<br/>
+
+Assim sendo, o usuário pode selecionar a dimensão que ele queira que seja exibida. 
 
 [3] Exibir valores originais. <br/>
 Aqui o usuário pode exibir os valores originais que foram carregados pelo arquivo inicial (arquivo.tsv) <br/>
+
+Aqui o usuário pode selecionar qual das dimensões que ele deseja fazer a pesquisa com os valores originais. <br/>
+Assim que ele seleciona essa opção é aberto um novo menu:
+
+##### Exibir Valores Originais
+
+[1] Social <br/>
+[2] Econômica <br/>
+[3] Política <br/>
+[4] Cultural <br/>
+[5] Todas as dimensões <br/>
+
+Assim sendo, o usuário pode selecionar a dimensão que ele queira que seja exibida. 
 
 [4] Verificação e teste (amostra padrão). <br/>
 Aqui o usuário pode validar o programa se este está funcionando corretamente com a entrada da informação pelo arquivo.tsv. Nesse caso o usuário não precisa lançar nenhuma informação. <br/>
@@ -228,7 +252,8 @@ Aqui o programa apresenta o banner do início do "Menu Dimensões".
             print('[1] Social\n[2] Econômica\n[3] Política\n[4] Cultural')
             print('****************************************\n')
 ````
-O Menu Dimensões é composto de 4 opções que estão todas explicadas no Memorial desse programa no arquivo "README.md".
+O Menu Dimensões é composto de 4 opções que estão todas explicadas no Memorial desse programa no arquivo
+"README.md".
 
 ````
             dimensao = int(input('Senhor(a) usuário(a), digite a dimensão desejada:'))
@@ -270,7 +295,8 @@ Aqui o programa apresenta o banner do início do "Exibir Valores Originais".
             print('[1] Social\n[2] Econômica\n[3] Política\n[4] Cultural\n[5] Todas as dimensões')
             print('****************************************')
 ````
-O menu "Exibir Valores Originais" é composto de 5 opções que estão todas explicadas no Memorial desse programa no arquivo "README.md".
+O menu "Exibir Valores Originais" é composto de 5 opções que estão todas explicadas no Memorial desse 
+programa no arquivo "README.md".
 ````
             dimensao = int(input('Senhor(a) usuário(a), digite a dimensão desejada:'))
             print('****************************************')
@@ -292,7 +318,8 @@ Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentu
                     print('Percentuais da pergunta', dimensoes[index].question)
                     print(dimensoes[index].to_string(dimensoes[index].percentage))
 ````
-Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentuais por cada resposta.
+Aqui o programa apresenta na tela os cálculos dos valores brutos e dos percentuais por cada 
+resposta.
 
 ````
             else:
@@ -357,7 +384,8 @@ Importando nesse momento o numpy que foi instalado anteriormente pelo comando "p
 ````
 class Calculator:
 ````
-Essa "Class Calculator" tem as funções "create_analitics", "create_percentage", "generate_random" e a "create_prevision".
+Essa "Class Calculator" tem as funções "create_analitics", "create_percentage", "generate_random" e a
+"create_prevision".
 
 ````
     def __init__(self) -> None:
@@ -469,7 +497,8 @@ Aqui o programa seleciona as respostas prováveis: "Sim", "Não" e "Não Observa
                     self.prevision_percent['Sim'], self.prevision_percent['Não'],
                     self.prevision_percent['Não Observado']]
 ````
-Aqui o programa seleciona as respostas prováveis: "Sim", "Não" e "Não Observado" da amostra inicial e da amostra selecionada pelo usuário.
+Aqui o programa seleciona as respostas prováveis: "Sim", "Não" e "Não Observado" da amostra inicial e da 
+amostra selecionada pelo usuário.
 
 
 <br/>
@@ -499,7 +528,8 @@ Aqui foi criado essa função para transformar esse arquivo em Classe.
             writer.writerows(dimension_list)
             
 ````
-Aqui o programa cria um arquivo "resultados.csv" de saída com todas as informações como: as dimensões, perguntas, amostras valores brutos e percentuais.
+Aqui o programa cria um arquivo "resultados.csv" de saída com todas as informações como: as dimensões, perguntas,  
+amostras valores brutos e percentuais.
 
 <br/>
 
@@ -669,3 +699,4 @@ Resp: Sim, foram utilizados print e a exportação do resultado para um arquivo 
 ````
 Resp: Sim, foram utilizados todos os recursos existentes na ferramenta, inclusive o *"debug"*.
 ````
+
